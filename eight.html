@@ -19,6 +19,7 @@
             position: relative;
             transition: all 0.5s linear;
             transform-style: preserve-3d;
+            cursor: pointer;
         }
 
         .cov {
@@ -46,7 +47,7 @@
             transform: rotateY(-180deg);
         }
 
-        .cover1:hover{
+        .cover1:hover {
             transform: rotateY(180deg);
         }
 
@@ -73,9 +74,15 @@
     var snameArr = ["白宏伟", "周宝成", "周宏蕊", "方佳硕", "丁悦", "任胜男", "刘浩宇", "米雪", "郝鑫", "徐宏宇", "王瑶", "李欣欣", "肖宏越", "吕明洁",
         "赵子扬", "郭伟", "潘家欣", "王文静", "邵莹莹", "韩雪", "杜万水", "李晶晶"
         , "张蒙", "章宇婷", "张铭哲", "林宝研", "朱佳欣", "贾金辉", "马仔皓", "陶新新", "孙明扬", "张鑫蕾", "孙祥", "白雪", "孙特", "王茗辉",
-        "卜浩冉", "啜明昊", "纪晓雪", "顾家宇", "张文", "张熙伟", "曹薇薇", "郑佳文"]
-
+        "卜浩冉", "啜明昊", "纪晓雪", "顾家宇", "张文", "张熙伟", "曹薇薇", "郑佳文"];
+    let imgNames = [];
+    for (let i = 1; i <= snameArr.length; i++) {
+        let name = "./imgs/" + i + ".jpg";
+        imgNames.push(name);
+    }
+    console.log(imgNames)
     snameArr = sortArr(snameArr);
+    imgNames = sortArr(imgNames);
 
     for (let i = 0; i < snameArr.length; i++) {
         let cover = document.createElement("div");
@@ -83,9 +90,7 @@
         let cover1 = document.createElement('div');
         cover1.className = "cov cover1";
         let img = document.createElement("img");
-        var rdm = Math.floor(Math.random() * 28) + 1;
-        let imgname = "./imgs/" + rdm + ".jpg";
-        img.src = imgname;
+        img.src = imgNames[i];
         cover1.appendChild(img);
         let cover2 = document.createElement('div');
         cover2.className = "cov cover2";

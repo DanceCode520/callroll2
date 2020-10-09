@@ -19,6 +19,7 @@
             position: relative;
             transition: all 0.5s linear;
             transform-style: preserve-3d;
+            cursor: pointer;
         }
 
         .cov {
@@ -47,7 +48,7 @@
             overflow: hidden;
         }
 
-        .cover1:hover{
+        .cover1:hover {
             transform: rotateY(180deg);
         }
 
@@ -71,12 +72,18 @@
 <body>
 <h1>五中七年七班点名系统</h1>
 <script>
-    var snameArr = ["倪志国","邵云成","李欣雅","王英奇","王美喆","陈宇","张皓宇","贾昊冉","李宇飞","吴天磊","杨悦"
-        ,"胡嘉成","李佳音","吴蓓贝","李伟凡","王世博","张天思","李晓伟","高晶","张明宇","张明慧","彭永欣","张思瑶","王欣蕾","杨浩"
-        ,"段毅殳","刘雨峰","杨晓芳","田源","张润泽","侯明希","谢可欣","王天翔","姚嘉俊","赵立鑫"
-        ,"赵智浩","佟欣宇","赵玉玲","王磊","姚明阳","高明杰","宿文涛","曲丽娜","陈文颖"]
-
+    var snameArr = ["倪志国", "邵云成", "李欣雅", "王英奇", "王美喆", "陈宇", "张皓宇", "贾昊冉", "李宇飞", "吴天磊", "杨悦"
+        , "胡嘉成", "李佳音", "吴蓓贝", "李伟凡", "王世博", "张天思", "李晓伟", "高晶", "张明宇", "张明慧", "彭永欣", "张思瑶", "王欣蕾", "杨浩"
+        , "段毅殳", "刘雨峰", "杨晓芳", "田源", "张润泽", "侯明希", "谢可欣", "王天翔", "姚嘉俊", "赵立鑫"
+        , "赵智浩", "佟欣宇", "赵玉玲", "王磊", "姚明阳", "高明杰", "宿文涛", "曲丽娜", "陈文颖"]
+    let imgNames = [];
+    for (let i = 1; i <= snameArr.length; i++) {
+        let name = "./imgs/" + i + ".jpg";
+        imgNames.push(name);
+    }
+    console.log(imgNames)
     snameArr = sortArr(snameArr);
+    imgNames = sortArr(imgNames);
 
     for (let i = 0; i < snameArr.length; i++) {
         let cover = document.createElement("div");
@@ -84,9 +91,7 @@
         let cover1 = document.createElement('div');
         cover1.className = "cov cover1";
         let img = document.createElement("img");
-        var rdm = Math.floor(Math.random() * 28) + 1;
-        let imgname = "./imgs/" + rdm + ".jpg";
-        img.src = imgname;
+        img.src = imgNames[i];
         cover1.appendChild(img);
         let cover2 = document.createElement('div');
         cover2.className = "cov cover2";
